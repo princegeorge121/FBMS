@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AirsiderFlightManagement.Models.FlightSchedule>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Available Flight Schedules</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightId)
+            </td>
+           @* <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+            <td>
+                 
+                 <a class="btn btn-primary" asp-area="Passengers" asp-controller="Home" asp-action="Book" asp-route-id="@item.Id">book </a>
+            </td>
+        </tr> 
+}
+    </tbody>
+</table>

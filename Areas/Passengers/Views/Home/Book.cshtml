@@ -1,0 +1,48 @@
+﻿@model FlightBooking
+@{
+    ViewData["Title"] = "Book";
+}
+
+<h1>Booking</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                <div>
+                    <label asp-for="FlightTicketNumber"></label>
+                    <input asp-for="FlightTicketNumber" class="form-control" />
+                    <span asp-validation-for="FlightTicketNumber" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="DateOfTravel"></label>
+                    <input asp-for="DateOfTravel" class="form-control" />
+                    <span asp-validation-for="DateOfTravel" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="FlightNumber"></label>
+                    <input asp-for="FlightNumber" class="form-control" />
+                    <span asp-validation-for="FlightNumber" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="PassengersId"></label>
+                    <input asp-for="PassengersId" class="form-control" />
+                    <span asp-validation-for="PassengersId" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="FlightScheduleId"></label>
+                    <input asp-for="FlightScheduleId" class="form-control" />
+                    <span asp-validation-for="FlightScheduleId" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button class="btn btn-primary" asp-area="Passengers" asp-controller="Home" asp-action="Invoice">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model FlightSearchView
+@{
+    ViewData["Title"] = "Searching";
+}
+<h1>Search for Flights</h1>
+
+
+<h2>@Model</h2>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form asp-action="Search">
+                <div>
+                    <label asp-for="FlightFrom"></label>
+                    <select asp-for="FlightFrom" asp-items="@Html.GetEnumSelectList<Location>()" class="form-control">
+                        <option>--- Select Starting point ---</option>
+                    </select>
+                    <span asp-validation-for="FlightFrom" class="text-danger"></span>
+                </div>
+
+
+
+                <div>
+                    <label asp-for="FlightTo"></label>
+                    <select asp-for="FlightTo" asp-items="@Html.GetEnumSelectList<Location>()" class="form-control">
+                        <option>--- Select your Destination ---</option>
+                    </select>
+                    <span asp-validation-for="FlightTo" class="text-danger"></span>
+                </div>
+
+
+@*
+                <div>
+                    <label asp-for="FlightDate"></label>
+                    <input asp-for="FlightDate" class="form-control" />
+                    <span asp-validation-for="FlightDate" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="FlightType"></label>
+                    `<select asp-for="FlightType" asp-items="@Html.GetEnumSelectList<FlightType>()" class="form-control">
+                        <option>--- Select a Car Model ---</option>
+                    </select>
+                    <span asp-validation-for="FlightType" class="text-danger"></span>
+                </div>
+*@
+
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+
+
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
